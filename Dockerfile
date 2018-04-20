@@ -1,7 +1,10 @@
 FROM circleci/ruby:2.4
 
 RUN set -x && \
-    sudo apt-get install -y libldap2-dev libsasl2-dev qt5-default libqt5webkit5-dev
+    sudo apt-get install -y libldap2-dev libsasl2-dev qt5-default libqt5webkit5-dev python python-dev python-pip python-setuptools groff
+
+RUN set -x && \
+    sudo pip install --upgrade awscli
 
 RUN set -x && \
     curl --output ~/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1 && \
